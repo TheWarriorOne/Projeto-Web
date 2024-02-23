@@ -4,7 +4,7 @@ Nome: xx
 
 Escopo: Aplicação para Importar imagens para um Diretorio e uma aplicação para importar para uma pagina da WEB.
 
-Principais Tecnologias: 
+Principais Tecnologias: PostgreSQL
 
 1.	Tecnologias Utilizadas:
 Lado do Servidor: Node.js com Express.js para o backend.
