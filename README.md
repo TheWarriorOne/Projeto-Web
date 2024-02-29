@@ -6,7 +6,7 @@ Atualmente não existem muitas ferramentas de organização de imagens para o E-
 
 # Escopo
 Criar uma aplicação web para importar imagens para um banco de dados.(Código / Produto / Imagem / Tamanho Arquivo / Nome importador / Data da operação) e
-Criar uma aplicação web para gerenciar imagens de banco de dados. (gerencia, aprova e sobre para um ecommerce)
+Criar uma aplicação web para gerenciar imagens de banco de dados. (Gerenciar, aprovar e Exportar as imagens para um ecommerce)
 
 
 
