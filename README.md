@@ -1,39 +1,35 @@
-# Projeto-Web
-
-Nome: E-co Gram
+# E-co Gram
 
 # Problema
 
 Atualmente não existem muitas ferramentas de organização de imagens para o E-commerce, visando uma melhor eficiência na gestão visual e no carregamento rápido das páginas. Portanto, um programa web personalizado para gerenciar e importar imagens pode ser uma estratégia altamente vantajosa. Com uma solução sob medida, é possível organizar as imagens de forma eficiente, garantir acesso remoto, facilitar a importação de diversas fontes, implementar controles de qualidade, integrar-se perfeitamente ao sistema de E-commerce, garantir a segurança dos dados, oferecer personalização, escalabilidade e análise de desempenho. Essa abordagem não só melhora a experiência do usuário, mas também oferece um maior controle e flexibilidade sobre a gestão de imagens, contribuindo para o sucesso e crescimento do negócio online.
 
-Escopo: Aplicação para Importar imagens para um Diretorio e uma aplicação para importar para uma pagina da WEB.
+Escopo
+Criar uma aplicação web para importar imagens para um banco de dados.
+(Código / Produto / Imagem / Tamanho Arquivo / Nome importador / Data da operação
 
-Principais Tecnologias: PostgreSQL
+Criar uma aplicação web para gerenciar imagens de banco de dados.
+(gerencia, aprova e sobre para um ecommerce)
+
+
 
 1.	Tecnologias Utilizadas:
-Lado do Servidor: Node.js com Express.js para o backend.
-Lado do Cliente: React.js para o frontend.
+Lado do Servidor: Node.js com para o backend.
+Lado do Cliente: xxxx para o frontend.
 
 2.	Banco de Dados:
-Utilize o MongoDB para armazenar os dados.
+MongoDB / PostgreSQL para armazenar os dados.
 
 3.	CRUD e Transação:
-Implemente operações CRUD (Create, Read, Update, Delete) para gerenciar entidades como usuários, produtos ou tarefas.
-Adicione uma funcionalidade de transação, como a compra de um produto em um e-commerce.
+CRUD (Create, Read, Update, Delete) para gerenciamento e importação.
 
 4.	REST/MV*:
-Crie uma API RESTful para comunicação entre o cliente e o servidor.
-Utilize o padrão Model-View-Controller (MVC) no lado do servidor para organizar o código.
 
-5.	Padrões de Projeto:
-Implemente o padrão de projeto Singleton para gerenciar conexões com o banco de dados.
-Use o padrão Repository para separar a lógica de acesso aos dados do restante da aplicação.
+5.	Controle de Acesso Login/Token:
+Implementar autenticação JWT (JSON Web Tokens) para controle de acesso.
+Criar um sistema de login e registro para os usuários.
 
-6.	Controle de Acesso Login/Token:
-Implemente autenticação JWT (JSON Web Tokens) para controle de acesso.
-Crie um sistema de login e registro para os usuários.
-
-7.	Arquitetura Monolítica/Microserviço:
+6.	Arquitetura Monolítica/Microserviço:
 Inicie com uma arquitetura monolítica para simplificar o desenvolvimento.
 Se desejar, posteriormente, divida a aplicação em microserviços.
 
