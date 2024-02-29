@@ -1,6 +1,9 @@
 # Projeto-Web
 
-Nome: xx
+Nome: E-co Gram
+
+<b>Problema:<b>
+Atualmente não existem muitas ferramentas de organização de imagens para o E-commerce, visando uma melhor eficiência na gestão visual e no carregamento rápido das páginas. Portanto, um programa web personalizado para gerenciar e importar imagens pode ser uma estratégia altamente vantajosa. Com uma solução sob medida, é possível organizar as imagens de forma eficiente, garantir acesso remoto, facilitar a importação de diversas fontes, implementar controles de qualidade, integrar-se perfeitamente ao sistema de E-commerce, garantir a segurança dos dados, oferecer personalização, escalabilidade e análise de desempenho. Essa abordagem não só melhora a experiência do usuário, mas também oferece um maior controle e flexibilidade sobre a gestão de imagens, contribuindo para o sucesso e crescimento do negócio online.
 
 Escopo: Aplicação para Importar imagens para um Diretorio e uma aplicação para importar para uma pagina da WEB.
 
