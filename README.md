@@ -12,7 +12,7 @@ Criar uma aplicação web para gerenciar imagens de banco de dados. (Gerenciar, 
 
 1.	Tecnologias Utilizadas:
 Lado do Servidor: Node.js com para o backend.
-Lado do Cliente: xxxx para o frontend.
+Lado do Cliente: HTML/CSS para o frontend.
 
 2.	Banco de Dados:
 MongoDB / PostgreSQL para armazenar os dados.
