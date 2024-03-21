@@ -1,6 +1,6 @@
-const bcrypt = require('bcrypt'); // Para criptografar senhas
-const jwt = require('jsonwebtoken'); // Para gerar tokens de autenticação
-const User = require('../models/user');
+import { hash, compare } from 'bcrypt'; // Para criptografar senhas
+import { sign } from 'jsonwebtoken'; // Para gerar tokens de autenticação
+import { findOne, create } from '../models/user';
 
 const authController = {
   async signup(req, res) {
@@ -8,19 +8,19 @@ const authController = {
       const { nome_Usuario, senha_Usuario } = req.body;
 
       // Verifica se o usuário já existe
-      const existingUser = await User.findOne({ where: { nome_Usuario } });
+      const existingUser = await findOne({ where: { nome_Usuario } });
       if (existingUser) {
         return res.status(400).json({ message: 'O usuário já existe' });
       }
 
       // Criptografa a senha
-      const hashedPassword = await bcrypt.hash(senha_Usuario, 10);
+      const hashedPassword = await hash(senha_Usuario, 10);
 
       // Cria um novo usuário
-      const newUser = await User.create({ nome_Usuario, senha_Usuario: hashedPassword });
+      const newUser = await create({ nome_Usuario, senha_Usuario: hashedPassword });
 
       // Gera um token de autenticação
-      const token = jwt.sign({ userId: newUser.id }, 'secreto', { expiresIn: '1h' });
+      const token = sign({ userId: newUser.id }, 'secreto', { expiresIn: '1h' });
 
       res.status(201).json({ message: 'Usuário criado com sucesso', token });
     } catch (error) {
@@ -34,19 +34,19 @@ const authController = {
       const { nome_Usuario, senha_Usuario } = req.body;
 
       // Verifica se o usuário existe
-      const user = await User.findOne({ where: { nome_Usuario } });
+      const user = await findOne({ where: { nome_Usuario } });
       if (!user) {
         return res.status(401).json({ message: 'Usuário não existe.' });
       }
 
       // Verifica se a senha está correta
-      const isPasswordValid = await bcrypt.compare(senha_Usuario, user.senha_Usuario);
+      const isPasswordValid = await compare(senha_Usuario, user.senhaUsuario);
       if (!isPasswordValid) {
         return res.status(401).json({ message: 'Senha inválida.' });
       }
 
       // Gera um token de autenticação
-      const token = jwt.sign({ userId: user.id }, 'secreto', { expiresIn: '1h' });
+      const token = sign({ userId: user.id }, 'secreto', { expiresIn: '1h' });
 
       res.json({ message: 'Login bem-sucedido', token });
     } catch (error) {
@@ -56,4 +56,4 @@ const authController = {
   }
 };
 
-module.exports = authController;
+export default authController;

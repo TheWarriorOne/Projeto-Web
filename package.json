@@ -1,10 +1,17 @@
 {
   "name": "projeto-web-main",
   "version": "1.0.0",
-  "description": "# Problema",
+  "description": "aplicacaoWeb",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TheWarriorOne/Projeto-Web.git"
+  },
+  "dependencies": {
+    "express": "^4.19.1"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC"
