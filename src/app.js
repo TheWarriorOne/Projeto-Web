@@ -1,12 +1,12 @@
-import express, { json } from 'express';
+const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000; // Porta do servidor
 
 // Middleware para processar corpos de requisição JSON
-app.use(json());
+app.use(express.json());
 
 // Rotas da aplicação
-import authRoutes from './routes/authRoutes';
+const authRoutes = require('./routes/authRoutes');
 app.use('/auth', authRoutes);
 
 // Rota inicial

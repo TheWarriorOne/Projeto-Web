@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database'); // Importe a instância do Sequelize configurada
+const { define } = require('../config/database'); // Importe a instância do Sequelize configurada
 
-const User = sequelize.define('User', {
+const User = define('User', {
     cod_Usuario: {
         type: DataTypes.INTEGER,
         primaryKey: true,

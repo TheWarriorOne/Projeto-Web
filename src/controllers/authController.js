@@ -1,6 +1,6 @@
-import { hash, compare } from 'bcrypt'; // Para criptografar senhas
-import { sign } from 'jsonwebtoken'; // Para gerar tokens de autenticação
-import { findOne, create } from '../models/user';
+const bcrypt = require('bcrypt'); // Para criptografar senhas
+const jwt = require('jsonwebtoken'); // Para gerar tokens de autenticação
+const { findOne, create } = require('../models/user');
 
 const authController = {
   async signup(req, res) {
@@ -14,13 +14,13 @@ const authController = {
       }
 
       // Criptografa a senha
-      const hashedPassword = await hash(senha_Usuario, 10);
+      const hashedPassword = await bcrypt.hash(senha_Usuario, 10);
 
       // Cria um novo usuário
       const newUser = await create({ nome_Usuario, senha_Usuario: hashedPassword });
 
       // Gera um token de autenticação
-      const token = sign({ userId: newUser.id }, 'secreto', { expiresIn: '1h' });
+      const token = jwt.sign({ userId: newUser.id }, 'secreto', { expiresIn: '1h' });
 
       res.status(201).json({ message: 'Usuário criado com sucesso', token });
     } catch (error) {
@@ -40,13 +40,13 @@ const authController = {
       }
 
       // Verifica se a senha está correta
-      const isPasswordValid = await compare(senha_Usuario, user.senhaUsuario);
+      const isPasswordValid = await bcrypt.compare(senha_Usuario, user.senhaUsuario);
       if (!isPasswordValid) {
         return res.status(401).json({ message: 'Senha inválida.' });
       }
 
       // Gera um token de autenticação
-      const token = sign({ userId: user.id }, 'secreto', { expiresIn: '1h' });
+      const token = jwt.sign({ userId: user.id }, 'secreto', { expiresIn: '1h' });
 
       res.json({ message: 'Login bem-sucedido', token });
     } catch (error) {
@@ -56,4 +56,4 @@ const authController = {
   }
 };
 
-export default authController;
+module.exports = authController;
