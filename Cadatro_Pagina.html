@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cadastrar - E-co Gram</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Calibri, sans-serif, sans-serif; /* Altera a fonte */
+        background-color: #a3a1be; /* Azul claro */
+    }
+
+    .header {
+        display: flex;
+        font-size: 30px;
+        justify-content: space-between;
+        margin-bottom: 30px;
+        padding: 10px 20px;
+        background-color: #a3a1be; /* Azul claro */
+        color: #00008b;
+    }
+
+    .container {
+        margin-top: 50px;
+        width: 90%;
+        margin: auto;
+        background-color: #b2b4ff; /* Cinza claro */
+        border-radius: 10px;
+        padding: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        border: 2px solid #00008b; /* Adicionando uma borda azul escuro */ 
+    }
+
+    .campo {
+        margin-bottom: 10px;
+    }
+
+    .campo-input {
+        width: calc(80% - 20px);
+        margin-right: 20px;
+    }
+
+    .campo-input:last-child {
+        margin-right: 0;
+    }
+
+    input[type="text"],
+    input[type="date"] {
+        width: calc(100% - 4px);
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    input[type="file"] {
+        margin-top: 10px;
+    }
+
+    input[type="submit"] {
+        margin-top: 10px;
+        margin-right: 10px; /* Adicionei margem direita */
+        padding: 10px 20px;
+        background-color: #00008b;
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .adicionar-imagem {
+        margin-top: 10px;
+        margin-right: 10px; /* Adicionei margem direita */
+        padding: 10px 20px;
+        background-color: #00008b;
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .imagem-preview {
+        margin-top: 20px;
+        margin-right: 10px;
+        width: 100%; /* Ocupa toda a largura do container */
+    }
+
+    .imagem-preview img {
+        max-width: 100%;
+        margin-right: 10px;
+        height: auto;
+    }
+</style>
+</head>
+<body>
+<div class="header">
+    <div>Novo Cadastro</div>
+    <div>E-co Gram</div>
+</div>
+<div class="container">
+    <div class="campo campo-id">
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id" class="campo-input">
+    </div>
+    <div class="campo campo-descricao">
+        <label for="descricao">Descrição:</label>
+        <input type="text" id="descricao" name="descricao" class="campo-input">
+    </div>
+    <div class="campo campo-grupo">
+        <label for="grupo">Grupo:</label>
+        <input type="text" id="grupo" name="grupo" class="campo-input">
+    </div>
+    <div class="campo campo-usuario">
+        <label for="usuario">Usuário:</label>
+        <input type="text" id="usuario" name="usuario" class="campo-input">
+    </div>
+    <div class="campo campo-data">
+        <label for="data">Data:</label>
+        <input type="date" id="data" name="data" value="<?php echo date('Y-m-d'); ?>" readonly class="campo-input">
+    </div>
+    <div class="campo campo-imagem">
+        <label for="imagem">Adicionar Imagem:</label>
+        <input type="file" id="imagem" name="imagem" class="campo-input" multiple onchange="exibirImagemPreview(event)">
+    </div>
+    <div class="imagem-preview" id="imagemPreview"></div> <!-- Div para exibir a imagem selecionada -->
+    <input type="submit" value="Cadastrar">
+</div>
+
+<script>
+function exibirImagemPreview(event) {
+    var imagemPreview = document.getElementById('imagemPreview');
+    imagemPreview.innerHTML = ''; // Limpa a div para remover imagens anteriores
+
+    var files = event.target.files;
+    for (var i = 0; i < files.length; i++) {
+        var file = files[i];
+        var reader = new FileReader();
+
+        reader.onload = function(e) {
+            var img = document.createElement('img');
+            img.src = e.target.result;
+            img.style.maxWidth = '200px'; // Define o tamanho máximo da imagem
+            imagemPreview.appendChild(img);
+        }
+
+        reader.readAsDataURL(file);
+    }
+}
+</script>
+
+</body>
+</html>
+
+
+

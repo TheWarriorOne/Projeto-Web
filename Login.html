@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E-co Gram</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Calibri, sans-serif; /* Apenas uma referência à fonte, sem repetições */
+        background-color: #a3a1be; /* Azul claro */
+    }
+
+    #container {
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    #logo {
+        font-size: 100px; /* Aumentando o tamanho do nome */
+        color: #00008b; /* Azul escuro */
+        margin-bottom: 8px; /* Adicionando espaço abaixo do nome */
+    }
+
+    #gerenciador {
+        font-size: 30px; /* Tamanho da frase */
+        color: #00008b; /* Azul escuro */
+        margin-bottom: 10px; /* Espaço entre a frase e o retângulo */
+    }
+
+    #retangulo {
+        margin-top: 40px;
+        width: 30%; /* Largura ajustada */
+        margin: auto;
+        background-color: #171a63; /* Cinza claro */
+        border-radius: 10px;
+        padding: 100px; /* Diminuído para caber o formulário */
+        border: 2px solid #00008b; /* Adicionando uma borda azul escuro */  
+    }
+
+    /* Novo estilo para o retângulo interno */
+    #retangulo-interno {
+        margin: auto;
+        background-color: #b2b4ff; /* Cinza claro */
+        width: 50%;
+        padding: 10px; /* Espaçamento interno */
+        border-radius: 5px; /* Borda arredondada */
+        border: 1px solid #000000; /* Borda preta */
+        height: 200px;
+    }
+
+    input[type="submit"] {
+        margin-top: 10px;
+        margin-right: 10px; /* Adicionei margem direita */
+        padding: 10px 20px;
+        background-color: #00008b;
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+<div id="container">
+    <div id="logo">E-co Gram</div>
+    <div id="gerenciador">Gerenciador de Imagens</div>
+    <div id="retangulo">
+        <!-- Retângulo interno -->
+        <div id="retangulo-interno">
+            <form>
+                <label for="nome"></label><br>
+                <input type="text" id="nome" name="nome" placeholder="Nome" style="border-radius: 5px;"><br>
+                <label for="senha"></label><br>
+                <input type="password" id="senha" name="senha" placeholder="Senha" style="border-radius: 5px;"><br><br>
+                <input type="submit" value="Login" style="border-radius: 5px;">
+            </form>          
+        </div>
+    </div>
+</div>
+</body>
+</html>

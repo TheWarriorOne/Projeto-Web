@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E-co Gram</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Calibri, sans-serif, sans-serif; /* Altera a fonte */
+        background-color: #a3a1be; /* Azul claro */
+    }
+
+    #container {
+        text-align: center;
+        margin-top: 15px;
+        }
+
+    #logo {
+        font-size: 100px; /* Aumentando o tamanho do nome */
+        color: #00008b; /* Azul escuro */
+        font-family: Calibri, sans-serif, sans-serif; /* Altera a fonte */
+        margin-bottom: 8px; /* Adicionando espaço abaixo do nome */
+    }
+
+    #gerenciador {
+        font-size: 30px; /* Tamanho da frase */
+        color: #00008b; /* Azul escuro */
+        margin-bottom: 10px; /* Espaço entre a frase e o retângulo */
+    }
+
+    #retangulo {
+        margin-top: 40px;
+        width: 30%;
+        margin: auto;
+        background-color: #b2b4ff; /* Cinza claro */
+        border-radius: 10px;
+        padding: 160px;
+        border: 2px solid #00008b; /* Adicionando uma borda azul escuro */  
+    }
+
+    .icone {
+        width: 80px;
+        height: 80px;
+        margin: 0 20px;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .icone img {
+        width: 100%;
+        height: 100%;
+    }
+</style>
+</head>
+<body>
+<div id="container">
+    <div id="logo">E-co Gram</div>
+    <div id="gerenciador">Gerenciador de Imagens</div>
+    <div id="retangulo">
+        <div class="icone" onclick="cadastrar()">
+            <img src="cadastrar_icon.png" alt="Cadastrar">
+            <div>Cadastrar</div>
+        </div>
+        <div class="icone" onclick="pesquisar()">
+            <img src="pesquisar_icon.png" alt="Pesquisar">
+            <div>Pesquisar</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function cadastrar() {
+        alert("Clicou em cadastrar");
+        // Adicione aqui o código para a funcionalidade de cadastro
+    }
+
+    function pesquisar() {
+        alert("Clicou em pesquisar");
+        // Adicione aqui o código para a funcionalidade de pesquisa
+    }
+</script>
+</body>
+</html>
+

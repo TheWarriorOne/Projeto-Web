@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pesquisar - E-co Gram</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Calibri, sans-serif, sans-serif; /* Altera a fonte */
+        background-color: #a3a1be; /* Azul claro */
+    }
+
+    .header {
+        text-align: center;
+        margin-top: 15px;
+        }
+
+    #logo {
+        font-size: 40px; /* Aumentando o tamanho do nome */
+        color: #00008b; /* Azul escuro */
+        font-family: Calibri, sans-serif, sans-serif; /* Altera a fonte */
+        margin-bottom: 8px; /* Adicionando espaço abaixo do nome */
+    }
+
+    #gerenciador {
+        font-size: 30px; /* Tamanho da frase */
+        color: #00008b; /* Azul escuro */
+        margin-bottom: 10px; /* Espaço entre a frase e o retângulo */
+    }
+
+
+    .container {
+        width: 90%;
+        margin: auto;
+        background-color: #d3d3d3; /* Cinza claro */
+        border-radius: 10px;
+        padding: 20px;
+        border: 2px solid #00008b; /* Adicionando uma borda azul escuro */ 
+        background-color: #b2b4ff; /* Cinza claro */
+    }
+
+    .campo {
+        display: inline-block;
+        margin-bottom: 30px;
+    }
+
+    .campo label {
+        display: block;
+        font-weight: bold;
+        font-family: Calibri, sans-serif, sans-serif; /* Altera a fonte */
+        margin-bottom: 5px;
+    }
+
+    .campo-input {
+        width: calc(120% - 100px);
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .botao-pesquisar {
+        margin-top: 25px;
+        padding: 10px 20px;
+        background-color: #00008b;
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .resultado-pesquisa {
+        display: flex;
+        align-items: center;
+        margin-top: 5px;
+        margin-left: 55px;
+        width: 66.5%;
+        padding: 200px;
+        background-color: #b2b4ff; /* Cinza claro */
+        border-radius: 10px;
+        border: 2px solid #00008b; /* Adicionando uma borda azul escuro */ 
+    }
+</style>
+</head>
+<body>
+<div class="header">
+    <div id="logo">E-co Gram</div>
+    <div id="gerenciador">Gerenciador de Imagens</div>
+</div>
+<div class="container">
+    <div class="campo">
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id" class="campo-input">
+    </div>
+    <div class="campo">
+        <label for="descricao">Descrição:</label>
+        <input type="text" id="descricao" name="descricao" class="campo-input">
+    </div>
+    <div class="campo">
+        <label for="grupo">Grupo:</label>
+        <input type="text" id="grupo" name="grupo" class="campo-input">
+    </div>
+    <button class="botao-pesquisar">Pesquisar</button>
+</div>
+
+<div class="resultado-pesquisa">
+    <!-- Aqui serão exibidos os resultados da pesquisa -->
+</div>
+
+<script>
+function adicionarItem(event, listaId) {
+    if (event.key === "Enter") {
+        var input = event.target;
+        var value = input.value.trim();
+        if (value !== "") {
+            var lista = document.getElementById(listaId);
+            var item = document.createElement('div');
+            item.textContent = value;
+            lista.appendChild(item);
+            input.value = ""; // Limpa o campo após adicionar o item
+        }
+    }
+}
+</script>
+
+</body>
+</html>
