@@ -101,10 +101,11 @@
     <div>E-co Gram</div>
 </div>
 <div class="container">
-    <div class="campo campo-id">
-        <label for="id">ID:</label>
-        <input type="text" id="id" name="id" class="campo-input">
-    </div>
+    <form id="formulario" enctype="multipart/form-data"> <!-- Adicionado o id e o enctype para permitir o envio de arquivos -->
+        <div class="campo campo-id">
+            <label for="id">ID:</label>
+            <input type="text" id="id" name="id" class="campo-input">
+        </div>
     <div class="campo campo-descricao">
         <label for="descricao">Descrição:</label>
         <input type="text" id="descricao" name="descricao" class="campo-input">
@@ -119,40 +120,67 @@
     </div>
     <div class="campo campo-data">
         <label for="data">Data:</label>
-        <input type="date" id="data" name="data" value="<?php echo date('Y-m-d'); ?>" readonly class="campo-input">
+        <input type="text" id="data" name="data" class="campo-input">
     </div>
     <div class="campo campo-imagem">
         <label for="imagem">Adicionar Imagem:</label>
         <input type="file" id="imagem" name="imagem" class="campo-input" multiple onchange="exibirImagemPreview(event)">
     </div>
     <div class="imagem-preview" id="imagemPreview"></div> <!-- Div para exibir a imagem selecionada -->
-    <input type="submit" value="Cadastrar">
+    <input type="submit" value="Cadastrar" id="botao-cadastrar"> <!-- Adicione um id ao botão -->
+</form>
 </div>
 
 <script>
-function exibirImagemPreview(event) {
-    var imagemPreview = document.getElementById('imagemPreview');
-    imagemPreview.innerHTML = ''; // Limpa a div para remover imagens anteriores
-
-    var files = event.target.files;
-    for (var i = 0; i < files.length; i++) {
-        var file = files[i];
-        var reader = new FileReader();
-
-        reader.onload = function(e) {
-            var img = document.createElement('img');
-            img.src = e.target.result;
-            img.style.maxWidth = '200px'; // Define o tamanho máximo da imagem
-            imagemPreview.appendChild(img);
+    document.addEventListener('DOMContentLoaded', () => {
+        const botaoCadastrar = document.getElementById('botao-cadastrar');
+    
+        botaoCadastrar.addEventListener('click', async (event) => {
+            event.preventDefault();
+    
+            const formulario = document.getElementById('formulario');
+            const formData = new FormData(formulario);
+    
+            try {
+                const response = await fetch('/cadastrar-produto', {
+                    method: 'POST',
+                    body: formData
+                });
+    
+                if (response.ok) {
+                    console.log('Produto cadastrado com sucesso!');
+                    // Faça algo após o cadastro bem-sucedido
+                } else {
+                    console.error('Erro ao cadastrar produto:', response.statusText);
+                    // Lidar com erros de cadastro
+                }
+            } catch (error) {
+                console.error('Erro:', error);
+                // Lidar com erros de rede ou outros erros
+            }
+        });
+    });
+    
+    function exibirImagemPreview(event) {
+        var imagemPreview = document.getElementById('imagemPreview');
+        imagemPreview.innerHTML = '';
+    
+        var files = event.target.files;
+        for (var i = 0; i < files.length; i++) {
+            var file = files[i];
+            var reader = new FileReader();
+    
+            reader.onload = function(e) {
+                var img = document.createElement('img');
+                img.src = e.target.result;
+                img.style.maxWidth = '200px';
+                imagemPreview.appendChild(img);
+            }
+    
+            reader.readAsDataURL(file);
         }
-
-        reader.readAsDataURL(file);
     }
-}
-</script>
-
-</body>
-</html>
-
-
-
+    </script>
+    
+    </body>
+    </html>
